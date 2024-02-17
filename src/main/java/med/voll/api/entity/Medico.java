@@ -23,5 +23,4 @@ public class Medico {
     private Expertise especialidade;
     @Embedded
     private Address endereco;
-
 }
