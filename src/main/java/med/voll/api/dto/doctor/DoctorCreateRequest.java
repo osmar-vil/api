@@ -6,7 +6,7 @@ public record DoctorCreateRequest(
     String nome,
     String email,
     String crm,
-    Expertise expertise,
+    Expertise especialidade,
     AddressCreateRequest address
 ) {
 }

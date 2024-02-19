@@ -29,7 +29,7 @@ public class Medico {
         this.nome = request.nome();
         this.email = request.email();
         this.crm = request.crm();
-        this.especialidade = request.expertise();
+        this.especialidade = request.especialidade();
         this.endereco = new Address(request.address());
     }
 }
