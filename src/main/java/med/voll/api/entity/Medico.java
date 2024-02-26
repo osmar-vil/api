@@ -6,6 +6,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import med.voll.api.dto.doctor.DoctorCreateRequest;
+import med.voll.api.dto.doctor.DoctorUpdateRequest;
 import med.voll.api.dto.doctor.Expertise;
 
 @Table(name = "medicos")
@@ -33,5 +34,11 @@ public class Medico {
         this.crm = request.crm();
         this.especialidade = request.especialidade();
         this.endereco = new Address(request.address());
+    }
+
+    public void update (DoctorUpdateRequest request) {
+        if (request.nome() != null) this.nome = request.nome();
+        if (request.telefone() != null) this.telefone = request.telefone();
+        if (request.endereco() != null) this.endereco.update(request.endereco());
     }
 }

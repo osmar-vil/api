@@ -28,4 +28,14 @@ public class Address {
         this.cidade = request.cidade();
         this.uf = request.uf();
     }
+
+    public void update(AddressCreateRequest request) {
+        if (request.logradouro() != null) this.logradouro = request.logradouro();
+        if (request.bairro() != null) this.bairro = request.bairro();
+        if (request.cep() != null) this.cep = request.cep();
+        if (request.numero() != null) this.numero = request.numero();
+        if (request.complemento() != null) this.complemento = request.complemento();
+        if (request.cidade() != null) this.cidade = request.cidade();
+        if (request.uf() != null) this.uf = request.uf();
+    }
 }
