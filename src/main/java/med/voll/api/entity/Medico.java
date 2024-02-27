@@ -26,6 +26,7 @@ public class Medico {
     private Expertise especialidade;
     @Embedded
     private Address endereco;
+    private boolean ativo;
 
     public Medico (DoctorCreateRequest request) {
         this.nome = request.nome();
@@ -34,11 +35,16 @@ public class Medico {
         this.crm = request.crm();
         this.especialidade = request.especialidade();
         this.endereco = new Address(request.address());
+        this.ativo = true;
     }
 
     public void update (DoctorUpdateRequest request) {
         if (request.nome() != null) this.nome = request.nome();
         if (request.telefone() != null) this.telefone = request.telefone();
         if (request.endereco() != null) this.endereco.update(request.endereco());
+    }
+
+    public void exclude () {
+        this.ativo = false;
     }
 }
