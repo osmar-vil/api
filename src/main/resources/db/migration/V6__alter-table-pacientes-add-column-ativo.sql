@@ -1,0 +1,1 @@
+ALTER TABLE pacientes ADD ativo tinyint DEFAULT 1 NOT NULL;
