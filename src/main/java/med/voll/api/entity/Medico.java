@@ -44,7 +44,7 @@ public class Medico {
         if (request.endereco() != null) this.endereco.update(request.endereco());
     }
 
-    public void exclude () {
+    public void softDelete() {
         this.ativo = false;
     }
 }
