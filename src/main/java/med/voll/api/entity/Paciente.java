@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import med.voll.api.dto.paciente.PacienteCreateRequest;
 
 @Table(name = "medicos")
 @Entity(name = "Medico")
@@ -23,4 +24,13 @@ public class Paciente {
     @Embedded
     private Address endereco;
     private boolean ativo;
+
+    public Paciente (PacienteCreateRequest request) {
+        nome = request.nome();
+        email = request.email();
+        telefone = request.telefone();
+        cpf = request.cpf();
+        endereco = new Address(request.endereco());
+        ativo = true;
+    }
 }
