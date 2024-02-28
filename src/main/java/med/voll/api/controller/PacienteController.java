@@ -36,7 +36,7 @@ public class PacienteController {
 
     @GetMapping()
     public ResponseEntity<Page<PacienteResponseList>> list (@PageableDefault(sort = {"nome"}) Pageable pageable) {
-        var response = repository.findAll(pageable).map(PacienteResponseList::new);
+        var response = repository.findAllByAtivoTrue(pageable).map(PacienteResponseList::new);
         return ResponseEntity.ok(response);
     }
 
@@ -52,5 +52,13 @@ public class PacienteController {
         var paciente = repository.getReferenceById(id);
         paciente.update(request);
         return ResponseEntity.ok(new PacienteResponse(paciente));
+    }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public ResponseEntity<?> delete(@PathVariable Long id) {
+        var paciente = repository.getReferenceById(id);
+        paciente.softDelete();
+        return ResponseEntity.noContent().build();
     }
 }

@@ -40,4 +40,6 @@ public class Paciente {
         if (request.telefone() != null) this.telefone = request.telefone();
         if (request.endereco() != null) this.endereco.update(request.endereco());
     }
+
+    public void softDelete() { this.ativo = false; }
 }
