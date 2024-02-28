@@ -38,4 +38,10 @@ public class PacienteController {
         var response = repository.findAll(pageable).map(PacienteResponseList::new);
         return ResponseEntity.ok(response);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<PacienteResponse> get (@PathVariable Long id) {
+        var paciente = repository.getReferenceById(id);
+        return ResponseEntity.ok(new PacienteResponse(paciente));
+    }
 }
