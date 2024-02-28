@@ -20,11 +20,11 @@ public class PacienteController {
 
     @PostMapping
     @Transactional
-    public ResponseEntity<PacienteResponse> create (@RequestBody @Valid PacienteCreateRequest request, UriComponentsBuilder uribuilder) {
+    public ResponseEntity<PacienteResponse> create (@RequestBody @Valid PacienteCreateRequest request, UriComponentsBuilder uriBuilder) {
         var paciente = new Paciente(request);
         repository.save(paciente);
 
-        var uri = uribuilder.path("/pacientes/{id}").buildAndExpand(paciente.getId()).toUri();
+        var uri = uriBuilder.path("/pacientes/{id}").buildAndExpand(paciente.getId()).toUri();
 
         return ResponseEntity.created(uri).body(new PacienteResponse(paciente));
     }
