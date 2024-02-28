@@ -7,6 +7,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import med.voll.api.dto.paciente.PacienteCreateRequest;
+import med.voll.api.dto.paciente.PacienteUpdateRequest;
 
 @Table(name = "pacientes")
 @Entity(name = "Paciente")
@@ -32,5 +33,11 @@ public class Paciente {
         cpf = request.cpf();
         endereco = new Address(request.endereco());
         ativo = true;
+    }
+
+    public void update (PacienteUpdateRequest request) {
+        if (request.nome() != null) this.nome = request.nome();
+        if (request.telefone() != null) this.telefone = request.telefone();
+        if (request.endereco() != null) this.endereco.update(request.endereco());
     }
 }

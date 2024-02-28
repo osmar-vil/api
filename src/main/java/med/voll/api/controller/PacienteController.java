@@ -4,6 +4,7 @@ import jakarta.validation.Valid;
 import med.voll.api.dto.paciente.PacienteCreateRequest;
 import med.voll.api.dto.paciente.PacienteResponse;
 import med.voll.api.dto.paciente.PacienteResponseList;
+import med.voll.api.dto.paciente.PacienteUpdateRequest;
 import med.voll.api.entity.Paciente;
 import med.voll.api.repository.PacienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +43,14 @@ public class PacienteController {
     @GetMapping("/{id}")
     public ResponseEntity<PacienteResponse> get (@PathVariable Long id) {
         var paciente = repository.getReferenceById(id);
+        return ResponseEntity.ok(new PacienteResponse(paciente));
+    }
+
+    @PutMapping("/{id}")
+    @Transactional
+    public ResponseEntity<PacienteResponse> update (@RequestBody @Valid PacienteUpdateRequest request, @PathVariable Long id) {
+        var paciente = repository.getReferenceById(id);
+        paciente.update(request);
         return ResponseEntity.ok(new PacienteResponse(paciente));
     }
 }
