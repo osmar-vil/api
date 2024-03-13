@@ -13,7 +13,7 @@ public class ValidatePacienteHaveOtherAppointment {
         var openedHour = date.withHour(7);
         var closedHour = date.withHour(18);
         var haveOtherAppointment = repository.existsByPacienteIdAndDateBetwen(pacienteId, openedHour, closedHour);
-        if (haveOtherAppointment) throw new ValidationError("This paciente already have an appointment today");
+        if (haveOtherAppointment != null) throw new ValidationError("This paciente already have an appointment today");
     }
 
 }
