@@ -19,6 +19,9 @@ public class ConsultaController {
     @Autowired
     private ConsultaRepository repository;
 
+    @Autowired
+    private CancelConsultaService cancelConsultaService;
+
     @PostMapping
     @Transactional
     public ResponseEntity<ConsultaResponse> create (@RequestBody @Valid ConsultaRequest request) {
@@ -34,8 +37,8 @@ public class ConsultaController {
 
     @DeleteMapping("/{id}")
     @Transactional
-    public ResponseEntity<?> cancel (@PathVariable Long id) {
-        System.out.println(id);
+    public ResponseEntity<?> cancel (@PathVariable Long id, @RequestBody @Valid CancelConsultaRequest request) {
+        cancelConsultaService.cancel(id, request);
         return ResponseEntity.noContent().build();
     }
 }

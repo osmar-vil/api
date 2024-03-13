@@ -1,12 +1,10 @@
-package med.voll.api.domain.consulta.validation;
+package med.voll.api.domain.consulta.validation.create;
 
 import med.voll.api.domain.ValidationError;
 import med.voll.api.domain.consulta.ConsultaRepository;
 import med.voll.api.domain.consulta.ConsultaRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import java.time.LocalDateTime;
 
 @Component
 public class ValidatePacienteHaveOtherAppointment implements ValidateConsultant {

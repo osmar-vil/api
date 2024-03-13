@@ -1,6 +1,6 @@
 package med.voll.api.domain.consulta;
 
-import med.voll.api.domain.consulta.validation.ValidateConsultant;
+import med.voll.api.domain.consulta.validation.create.ValidateConsultant;
 import med.voll.api.domain.medico.Medico;
 import med.voll.api.domain.ValidationError;
 import med.voll.api.domain.medico.MedicoRepository;

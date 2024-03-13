@@ -1,11 +1,10 @@
-package med.voll.api.domain.consulta.validation;
+package med.voll.api.domain.consulta.validation.create;
 
 import med.voll.api.domain.ValidationError;
 import med.voll.api.domain.consulta.ConsultaRequest;
 import org.springframework.stereotype.Component;
 
 import java.time.DayOfWeek;
-import java.time.LocalDateTime;
 
 @Component
 public class WorkHourClinic implements ValidateConsultant {

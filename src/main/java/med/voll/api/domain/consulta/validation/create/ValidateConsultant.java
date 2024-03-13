@@ -1,4 +1,4 @@
-package med.voll.api.domain.consulta.validation;
+package med.voll.api.domain.consulta.validation.create;
 
 import med.voll.api.domain.consulta.ConsultaRequest;
 
