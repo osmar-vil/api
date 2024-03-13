@@ -8,9 +8,6 @@ public record CancelConsultaRequest(
         Long id,
 
         @NotNull
-        CancelConsultaMotive motive,
-
-        @JsonAlias("other_motive")
-        String otherMotive
+        String motive
 ) {
 }

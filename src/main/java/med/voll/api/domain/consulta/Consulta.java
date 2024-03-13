@@ -32,4 +32,11 @@ public class Consulta {
 
     private LocalDateTime data;
 
+    private Boolean isCancel;
+    private String motive;
+
+    public void cancelar(String motive) {
+        isCancel = true;
+        this.motive = motive;
+    }
 }

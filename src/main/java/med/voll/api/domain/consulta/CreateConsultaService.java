@@ -36,7 +36,7 @@ public class CreateConsultaService {
 
         var paciente = pacienteRepository.getReferenceById(request.pacienteId());
         var medico = selectDoctor(request);
-        var consulta = new Consulta(null, medico, paciente, request.datetime());
+        var consulta = new Consulta(null, medico, paciente, request.datetime(), false, null);
 
         consultaRepository.save(consulta);
 
