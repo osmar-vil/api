@@ -35,10 +35,10 @@ public class ConsultaController {
         return ResponseEntity.ok(response);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping
     @Transactional
-    public ResponseEntity<?> cancel (@PathVariable Long id, @RequestBody @Valid CancelConsultaRequest request) {
-        cancelConsultaService.cancel(id, request);
+    public ResponseEntity<?> cancel (@RequestBody @Valid CancelConsultaRequest request) {
+        cancelConsultaService.cancel(request);
         return ResponseEntity.noContent().build();
     }
 }

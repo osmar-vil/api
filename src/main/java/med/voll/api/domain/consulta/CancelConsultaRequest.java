@@ -5,6 +5,9 @@ import jakarta.validation.constraints.NotNull;
 
 public record CancelConsultaRequest(
         @NotNull
+        Long id,
+
+        @NotNull
         CancelConsultaMotive motive,
 
         @JsonAlias("other_motive")
