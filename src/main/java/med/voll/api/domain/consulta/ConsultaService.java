@@ -41,7 +41,7 @@ public class ConsultaService {
         var medico = selectDoctor(request);
         var consulta = new Consulta(null, medico, paciente, request.datetime());
 
-        consultaRepository.save(consulta);
+//        consultaRepository.save(consulta);
     }
 
     private Medico selectDoctor(ConsultaRequest request) {
