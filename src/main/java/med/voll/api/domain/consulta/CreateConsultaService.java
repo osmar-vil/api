@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class ConsultaService {
+public class CreateConsultaService {
 
     @Autowired
     private ConsultaRepository consultaRepository;
