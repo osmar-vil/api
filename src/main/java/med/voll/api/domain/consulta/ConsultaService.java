@@ -25,7 +25,7 @@ public class ConsultaService {
     @Autowired
     private List<ValidateConsultant> validations;
 
-    public void create (ConsultaRequest request) {
+    public ConsultaResponse create (ConsultaRequest request) {
         if (!pacienteRepository.existsById(request.pacienteId()))
             throw new ValidationError("Patient ID does not exist");
 
@@ -39,6 +39,8 @@ public class ConsultaService {
         var consulta = new Consulta(null, medico, paciente, request.datetime());
 
         consultaRepository.save(consulta);
+
+        return new ConsultaResponse(consulta);
     }
 
     private Medico selectDoctor(ConsultaRequest request) {

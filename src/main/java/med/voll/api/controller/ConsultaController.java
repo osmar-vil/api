@@ -21,10 +21,9 @@ public class ConsultaController {
 
     @PostMapping
     @Transactional
-    public ResponseEntity<?> create (@RequestBody @Valid ConsultaRequest request) {
-        service.create(request);
-        var Response = new ConsultaResponse(null, null, null, null);
-        return ResponseEntity.ok(Response);
+    public ResponseEntity<ConsultaResponse> create (@RequestBody @Valid ConsultaRequest request) {
+        var response = service.create(request);
+        return ResponseEntity.ok(response);
     }
 
 }
