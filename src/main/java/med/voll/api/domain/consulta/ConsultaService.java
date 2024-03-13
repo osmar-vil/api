@@ -1,11 +1,8 @@
 package med.voll.api.domain.consulta;
 
-import med.voll.api.domain.consulta.ConsultaRequest;
-import med.voll.api.domain.consulta.Consulta;
 import med.voll.api.domain.consulta.validation.ValidateConsultant;
 import med.voll.api.domain.medico.Medico;
 import med.voll.api.domain.ValidationError;
-import med.voll.api.domain.consulta.ConsultaRepository;
 import med.voll.api.domain.medico.MedicoRepository;
 import med.voll.api.domain.paciente.PacienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +38,7 @@ public class ConsultaService {
         var medico = selectDoctor(request);
         var consulta = new Consulta(null, medico, paciente, request.datetime());
 
-//        consultaRepository.save(consulta);
+        consultaRepository.save(consulta);
     }
 
     private Medico selectDoctor(ConsultaRequest request) {
